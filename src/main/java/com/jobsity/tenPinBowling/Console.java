@@ -5,4 +5,6 @@ public interface Console {
     void printLine(String line);
 
     void printf(String format, Object... args);
+
+    void print(String s);
 }

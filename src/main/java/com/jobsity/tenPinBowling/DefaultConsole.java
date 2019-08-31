@@ -19,4 +19,9 @@ public class DefaultConsole implements Console {
     public void printf(String format, Object... args) {
         printStream.printf(format,args);
     }
+
+    @Override
+    public void print(String s){
+        printStream.print(s);
+    }
 }
