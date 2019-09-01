@@ -17,12 +17,84 @@ public class TenPinBowlingTest {
 
     @Test
     public void testAllRollsAre0(){
-     //TODO
+        /**
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         * Carl	0
+         */
+
+        Player player = new DefaultPlayer("Carl      ");
+        List<Roll> rolls = Arrays.asList(
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero),
+                new DefaultRoll(Roll.PinFalls.Zero)
+        );
+
+        Game game = new DefaultGame(player, rolls);
+
+
+        Match match = new DefaultMatch(Arrays.asList(game));
+
+        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
+
+        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
+
+        match.print(writer);
+
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
+        stringBuffer.append(player.getName()).append("\n");
+        stringBuffer.append("Pinfals    0 0  0 0  0 0  0 0  0 0  0 0  0 0  0 0  0 0     0    0    0 ").append("\n");
+        stringBuffer.append("Score      0    0    0    0    0    0    0    0    0    0    ").append("\n");
+        stringBuffer.append("\n");
+
+        assertThat(outSpy.toString()).isEqualTo(stringBuffer.toString());
     }
 
     @Test
     public void testAllRollsFouls(){
-      //TODO
+        /**
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         * Carl	F
+         */
+
     }
 
     @Test

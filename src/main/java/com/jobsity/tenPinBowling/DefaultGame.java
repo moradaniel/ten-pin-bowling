@@ -47,6 +47,7 @@ public class DefaultGame implements Game{
             }
         }
 
+        Validate.isTrue(size == 10,"A game must have 10 frames.",size);
     }
 
     Frame addFrame(List<Roll> rolls){
@@ -81,6 +82,8 @@ public class DefaultGame implements Game{
             if (!current.isLast()){
                 if (current.isStrike()) {
                     current.setAccumulatedScore(previousFrameScore + current.getScore() + addAccumulatedScore(nextFrame, 2));
+                }else{
+                    current.setAccumulatedScore(previousFrameScore + current.getScore());
                 }
             }else{
                 current.setAccumulatedScore(previousFrameScore + current.getScore());

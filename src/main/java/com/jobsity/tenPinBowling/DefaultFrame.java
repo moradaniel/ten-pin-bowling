@@ -71,6 +71,10 @@ public class DefaultFrame implements Frame {
                 console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
                 console.printf("%-2s ", " ");
                 console.printf("%-2s", rolls.get(2).getPinfalls().getMnemonic());
+            }else{
+                console.printf("%-2s", rolls.get(0).getPinfalls().getMnemonic());
+                console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
+                console.print(" ");
             }
         }
     }
