@@ -39,11 +39,6 @@ public class DefaultFrame implements Frame {
         return score;
     }
 
-    @Override
-    public void setScore(int score) {
-        // TODO remove this method
-    }
-
 
     @Override
     public int getAccumulatedScore() {

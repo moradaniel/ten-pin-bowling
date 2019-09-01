@@ -13,7 +13,6 @@ public class DefaultGame implements Game{
     public DefaultGame(Player player, List<Roll> rolls) {
         Validate.notNull(player);
         Validate.notEmpty(rolls, "Rolls cannot be empty");
-        //Validate.isTrue(frames.size() == 10,"A game must have 10 frames",frames.size());
 
         this.player = player;
 
@@ -78,7 +77,6 @@ public class DefaultGame implements Game{
         int previousFrameScore = 0;
         while(current!=null) {
             Frame nextFrame = current.next();
-            //TODO on spares the score is 10 + the next roll
             if (!current.isLast()){
                 if (current.isStrike()) {
                     current.setAccumulatedScore(previousFrameScore + current.getScore() + addAccumulatedScore(nextFrame, 2));

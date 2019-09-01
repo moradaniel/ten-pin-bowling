@@ -1,5 +1,7 @@
 package com.jobsity.tenPinBowling;
 
+import java.util.Arrays;
+
 public interface Roll {
 
     enum PinFalls {
@@ -32,6 +34,7 @@ public interface Roll {
         public String getMnemonic() {
             return mnemonic;
         }
+
     }
 
 

@@ -10,8 +10,6 @@ public interface Frame {
 
     int getScore();
 
-    void setScore(int score);
-
     int getAccumulatedScore();
 
     void setAccumulatedScore(int score);
