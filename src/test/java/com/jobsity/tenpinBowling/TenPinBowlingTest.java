@@ -283,4 +283,74 @@ public class TenPinBowlingTest {
 
     }
 
+
+    @Test
+    public void testJhon(){
+
+        /*
+            John	3
+            John	7
+            John	6
+            John	3
+            John	10
+            John	8
+            John	1
+            John	10
+            John	10
+            John	9
+            John	0
+            John	7
+            John	3
+            John	4
+            John	4
+            John	10
+            John	9
+            John	0
+
+        */
+
+        Player player = new DefaultPlayer("John      ");
+        List<Roll> rolls = Arrays.asList(
+                new DefaultRoll(Roll.PinFalls.THREE),
+                new DefaultRoll(Roll.PinFalls.SEVEN),
+                new DefaultRoll(Roll.PinFalls.SIX),
+                new DefaultRoll(Roll.PinFalls.THREE),
+                new DefaultRoll(Roll.PinFalls.TEN),
+                new DefaultRoll(Roll.PinFalls.EIGHT),
+                new DefaultRoll(Roll.PinFalls.ONE),
+                new DefaultRoll(Roll.PinFalls.TEN),
+                new DefaultRoll(Roll.PinFalls.TEN),
+                new DefaultRoll(Roll.PinFalls.NINE),
+                new DefaultRoll(Roll.PinFalls.ZERO),
+                new DefaultRoll(Roll.PinFalls.SEVEN),
+                new DefaultRoll(Roll.PinFalls.THREE),
+                new DefaultRoll(Roll.PinFalls.FOUR),
+                new DefaultRoll(Roll.PinFalls.FOUR),
+                new DefaultRoll(Roll.PinFalls.TEN),
+                new DefaultRoll(Roll.PinFalls.NINE),
+                new DefaultRoll(Roll.PinFalls.ZERO)
+        );
+
+        Game game = new DefaultGame(player, rolls);
+
+
+        Match match = new DefaultMatch(Arrays.asList(game));
+
+        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
+
+        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
+
+        match.print(writer);
+
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
+        stringBuffer.append(player.getName()).append("\n");
+        stringBuffer.append("Pinfals    3 /  6 3  X    8 1  X    X    9 0  7 /  4 4  X   9   0   ").append("\n");
+        stringBuffer.append("Score      16   25   44   53   82   101  110  124  132  151  ").append("\n");
+        stringBuffer.append("\n");
+
+        assertThat(outSpy.toString()).isEqualTo(stringBuffer.toString());
+
+    }
+
 }
