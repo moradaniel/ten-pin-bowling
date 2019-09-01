@@ -3,42 +3,31 @@ package com.jobsity.tenPinBowling;
 public interface Roll {
 
     enum PinFalls {
-        Zero("0"),
-        ONE("1"),
-        TWO("2"),
-        THREE("3"),
-        FOUR("4"),
-        FIVE("5"),
-        SIX("6"),
-        SEVEN("7"),
-        EIGHT("8"),
-        NINE("9"),
-        TEN("10"),
-        FAIL("F");
+        Zero("0",0),
+        ONE("1",1),
+        TWO("2",2),
+        THREE("3",3),
+        FOUR("4",4),
+        FIVE("5",5),
+        SIX("6",6),
+        SEVEN("7",7),
+        EIGHT("8",8),
+        NINE("9",9),
+        TEN("X",10),
+        FOUL("F",0);
 
 
 
-        PinFalls(String mnemonic) {
+        PinFalls(String mnemonic,int value) {
             this.mnemonic = mnemonic;
+            this.value = value;
         }
 
         private final String mnemonic;
+        private final int value;
 
         public int getValue() {
-            int value;
-            if(mnemonic.equalsIgnoreCase("F")){
-                value = 0;
-            }else {
-                try {
-                    value = Integer.valueOf(mnemonic);
-
-                } catch (Exception ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-
-            return value;
-
+            return this.value;
         }
         public String getMnemonic() {
             return mnemonic;

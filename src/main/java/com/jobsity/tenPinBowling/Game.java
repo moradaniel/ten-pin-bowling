@@ -4,4 +4,5 @@ public interface Game {
 
     void print(Console console);
 
+    Frame head();
 }

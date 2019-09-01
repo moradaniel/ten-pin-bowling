@@ -12,6 +12,7 @@ public class DefaultRoll implements Roll{
         this.pinfalls = pinfalls;
     }
 
+
     @Override
     public PinFalls getPinfalls() {
         return pinfalls;

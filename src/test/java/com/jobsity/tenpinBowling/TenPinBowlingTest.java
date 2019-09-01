@@ -73,10 +73,11 @@ public class TenPinBowlingTest {
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
         stringBuffer.append(player.getName()).append("\n");
         stringBuffer.append("Pinfals       X    X    X    X    X    X    X    X    X    X    X    X ").append("\n");
+        stringBuffer.append("Score      30   60   90   120  150  180  210  240  270  300  ").append("\n");
+        stringBuffer.append("\n");
 
         assertThat(outSpy.toString()).isEqualTo(stringBuffer.toString());
 
-        //TODO test Scores
 
     }
 
