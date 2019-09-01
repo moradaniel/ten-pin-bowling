@@ -82,8 +82,12 @@ public class DefaultGame implements Game{
             if (!current.isLast()){
                 if (current.isStrike()) {
                     current.setAccumulatedScore(previousFrameScore + current.getScore() + addAccumulatedScore(nextFrame, 2));
-                }else{
-                    current.setAccumulatedScore(previousFrameScore + current.getScore());
+                }else {
+                    if (current.isSpare()) {
+                        current.setAccumulatedScore(previousFrameScore + current.getScore() + nextFrame.getRolls().get(0).getPinfalls().getValue());
+                    }else {
+                        current.setAccumulatedScore(previousFrameScore + current.getScore());
+                    }
                 }
             }else{
                 current.setAccumulatedScore(previousFrameScore + current.getScore());
@@ -105,7 +109,10 @@ public class DefaultGame implements Game{
                     if (current.isStrike()) {
                         accumulatedScore = current.getScore();
                         accumulatedScore += addAccumulatedScore(current.next(), lookforwardMax - 1);
+                    }else{
+                        accumulatedScore = current.getScore();
                     }
+
                 } else {//current is last
 
                         List<Roll> rolls = current.getRolls();

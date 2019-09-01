@@ -26,6 +26,11 @@ public class DefaultFrame implements Frame {
     }
 
     @Override
+    public boolean isSpare() {
+        return rolls.size()==2 && getScore()==10;
+    }
+
+    @Override
     public int getScore() {
         int score = 0;
         for(Roll roll: rolls){
@@ -61,19 +66,19 @@ public class DefaultFrame implements Frame {
     public void printPinfals(Console console){
         if (isStrike()){
             Roll.PinFalls ten = rolls.get(0).getPinfalls();
-            console.printf("%-2s ", " ");
-            console.printf("%-2s", ten.getMnemonic());
+            console.printf("%-4s ", ten.getMnemonic());
         }else{
             if(isLast()){
-                console.printf("%-2s ", " ");
-                console.printf("%-2s", rolls.get(0).getPinfalls().getMnemonic());
-                console.printf("%-2s ", " ");
-                console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
-                console.printf("%-2s ", " ");
-                console.printf("%-2s", rolls.get(2).getPinfalls().getMnemonic());
+                console.printf("%-3s ", rolls.get(0).getPinfalls().getMnemonic());
+                console.printf("%-3s ", rolls.get(1).getPinfalls().getMnemonic());
+                console.printf("%-3s ", rolls.get(2).getPinfalls().getMnemonic());
             }else{
                 console.printf("%-2s", rolls.get(0).getPinfalls().getMnemonic());
-                console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
+                if(isSpare()){
+                    console.printf("%-2s", "/");
+                }else {
+                    console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
+                }
                 console.print(" ");
             }
         }
@@ -99,5 +104,7 @@ public class DefaultFrame implements Frame {
     public boolean isLast() {
         return !hasNext();
     }
+
+
 
 }

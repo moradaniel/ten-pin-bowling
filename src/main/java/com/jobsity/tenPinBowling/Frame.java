@@ -28,4 +28,5 @@ public interface Frame {
 
     boolean isLast();
 
+    boolean isSpare();
 }

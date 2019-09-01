@@ -3,7 +3,7 @@ package com.jobsity.tenPinBowling;
 public interface Roll {
 
     enum PinFalls {
-        Zero("0",0),
+        ZERO("0",0),
         ONE("1",1),
         TWO("2",2),
         THREE("3",3),
