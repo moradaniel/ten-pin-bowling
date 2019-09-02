@@ -1,6 +1,8 @@
 package com.jobsity.tenPinBowling;
 
+import java.util.List;
+
 public interface Match {
 
-    void print(Console console);
+    List<Game> getGames();
 }

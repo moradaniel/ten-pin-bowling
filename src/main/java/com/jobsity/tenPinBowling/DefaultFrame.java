@@ -55,36 +55,6 @@ public class DefaultFrame implements Frame {
         this.next = nextFrame;
     }
 
-
-
-    @Override
-    public void printPinfals(Console console){
-        if (isStrike()){
-            Roll.PinFalls ten = rolls.get(0).getPinfalls();
-            console.printf("%-4s ", ten.getMnemonic());
-        }else{
-            if(isLast()){
-                console.printf("%-3s ", rolls.get(0).getPinfalls().getMnemonic());
-                console.printf("%-3s ", rolls.get(1).getPinfalls().getMnemonic());
-                console.printf("%-3s ", rolls.get(2).getPinfalls().getMnemonic());
-            }else{
-                console.printf("%-2s", rolls.get(0).getPinfalls().getMnemonic());
-                if(isSpare()){
-                    console.printf("%-2s", "/");
-                }else {
-                    console.printf("%-2s", rolls.get(1).getPinfalls().getMnemonic());
-                }
-                console.print(" ");
-            }
-        }
-    }
-
-    @Override
-    public void printScore(Console console){
-        console.printf("%-4s ", getAccumulatedScore());
-
-    }
-
     @Override
     public Frame next() {
         return this.next;

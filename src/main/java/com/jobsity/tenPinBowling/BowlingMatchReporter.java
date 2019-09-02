@@ -2,6 +2,7 @@ package com.jobsity.tenPinBowling;
 
 import com.jobsity.tenPinBowling.file.MatchInFileReader;
 import com.jobsity.tenPinBowling.file.MatchReader;
+import com.jobsity.tenPinBowling.printer.*;
 
 import java.io.File;
 
@@ -20,7 +21,13 @@ public class BowlingMatchReporter {
         MatchReader matchReader = new MatchInFileReader(new File(fileName));
 
         Match match = matchReader.read();
-        match.print(new DefaultConsole(System.out));
+
+        Console console = new DefaultConsole(System.out);
+
+        MatchPrinter matchPrinter = new ConsoleMatchPrinter(console,
+                                    new ConsoleGamePrinter(console,
+                                    new ConsoleFramePrinter(console)));
+        matchPrinter.print(match);
 
     }
 

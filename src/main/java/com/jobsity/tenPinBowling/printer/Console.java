@@ -1,8 +1,6 @@
-package com.jobsity.tenPinBowling;
+package com.jobsity.tenPinBowling.printer;
 
 public interface Console {
-
-    void printLine(String line);
 
     void printf(String format, Object... args);
 

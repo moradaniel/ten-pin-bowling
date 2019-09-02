@@ -2,6 +2,8 @@ package com.jobsity.tenpinBowling;
 
 
 import com.jobsity.tenPinBowling.*;
+import com.jobsity.tenPinBowling.printer.*;
+import org.junit.Before;
 import org.junit.Test;
 
 
@@ -14,6 +16,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class TenPinBowlingTest {
 
+    private MatchPrinter matchPrinter;
+    private ByteArrayOutputStream outSpy;
+
+    @Before
+    public void initialise(){
+
+        outSpy = new ByteArrayOutputStream();
+
+        Console console = new DefaultConsole(new PrintStream(outSpy));
+
+        matchPrinter = new ConsoleMatchPrinter(console,
+                new ConsoleGamePrinter(console,
+                        new ConsoleFramePrinter(console)));
+    }
 
     @Test
     public void testAllRollsAre0(){
@@ -71,11 +87,7 @@ public class TenPinBowlingTest {
 
         Match match = new DefaultMatch(Arrays.asList(game));
 
-        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-
-        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
-
-        match.print(writer);
+        matchPrinter.print(match);
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
@@ -143,11 +155,7 @@ public class TenPinBowlingTest {
 
         Match match = new DefaultMatch(Arrays.asList(game));
 
-        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-
-        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
-
-        match.print(writer);
+        matchPrinter.print(match);
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
@@ -198,11 +206,7 @@ public class TenPinBowlingTest {
 
         Match match = new DefaultMatch(Arrays.asList(game));
 
-        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-
-        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
-
-        match.print(writer);
+        matchPrinter.print(match);
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
@@ -266,11 +270,7 @@ public class TenPinBowlingTest {
 
         Match match = new DefaultMatch(Arrays.asList(game));
 
-        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-
-        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
-
-        match.print(writer);
+        matchPrinter.print(match);
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");
@@ -336,11 +336,7 @@ public class TenPinBowlingTest {
 
         Match match = new DefaultMatch(Arrays.asList(game));
 
-        ByteArrayOutputStream outSpy = new ByteArrayOutputStream();
-
-        DefaultConsole writer = new DefaultConsole(new PrintStream(outSpy));
-
-        match.print(writer);
+        matchPrinter.print(match);
 
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("Frame      1    2    3    4    5    6    7    8    9    10    ").append("\n");

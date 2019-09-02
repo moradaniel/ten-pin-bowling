@@ -131,44 +131,13 @@ public class DefaultGame implements Game{
         return accumulatedScore;
     }
 
-
-    @Override
-    public void print(Console console){
-
-        console.printf("%-10s",player.getName());
-        console.print("\n");
-
-        printPinFals(console);
-
-        printScores(console);
-
-        console.print("\n");
-    }
-
-    private void printScores(Console console) {
-        console.printf("%-10s ","Score");
-
-        Frame current = head;
-        while(current!=null){
-            current.printScore(console);
-            current = current.next();
-        }
-        console.print("\n");
-    }
-
-    private void printPinFals(Console console) {
-        console.printf("%-10s ","Pinfals");
-
-        Frame current = head;
-        while(current!=null){
-            current.printPinfals(console);
-            current = current.next();
-        }
-        console.print("\n");
-    }
-
     @Override
     public Frame head() {
         return this.head;
+    }
+
+    @Override
+    public Player getPlayer() {
+        return this.player;
     }
 }

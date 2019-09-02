@@ -1,4 +1,4 @@
-package com.jobsity.tenPinBowling;
+package com.jobsity.tenPinBowling.printer;
 
 import java.io.PrintStream;
 
@@ -8,11 +8,6 @@ public class DefaultConsole implements Console {
 
     public DefaultConsole(PrintStream printStream) {
         this.printStream = printStream;
-    }
-
-    @Override
-    public void printLine(String line) {
-        printStream.println(line);
     }
 
     @Override

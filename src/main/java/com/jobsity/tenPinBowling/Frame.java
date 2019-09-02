@@ -16,10 +16,6 @@ public interface Frame {
 
     void setNext(Frame nextFrame);
 
-    void printPinfals(Console console);
-
-    void printScore(Console console);
-
     Frame next();
 
     boolean hasNext();
